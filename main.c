@@ -4,9 +4,10 @@
 int main (int argc, char *argv[]) {
     char producto [10][50];
     float precio[10];
-    char buscarProducto [50];
+    char buscarProducto[50];
+    int cantidadProducto[10];
     float suma, b;
-    int cant;
+    int cant, c;
     char a; 
     //Ingresamos los nombres de los productos y sus precios
     //leerCantidad(0);
@@ -17,7 +18,11 @@ int main (int argc, char *argv[]) {
         producto[i][50]=a;
         b=leerPrecio(i+1, i, precio);
         precio[i]=b;
+        c=leerCantidadProducto(i+1, i, cantidadProducto);
+        cantidadProducto[i]=c;
     }
+
+    leerTotalProductos(cant, cantidadProducto);
 
     suma=sumaTotal(cant, precio);
 
@@ -28,5 +33,6 @@ int main (int argc, char *argv[]) {
     menor(cant, producto, precio, 1);
 
     buscar(cant, producto, precio, buscarProducto);
+
     return 0;
 }

@@ -13,6 +13,25 @@ int leerCantidad(int i){
     return cant;
 }
 
+int leerCantidadProducto(int num, int cant, int cantidadProducto[10]){
+    int total;
+    printf("Ingrese la cantidad del producto %d:\n>>",num);
+    scanf("%d",&total);
+    if (total<=0){
+        printf("Debe ingresar un numero positivo\n>>");
+        scanf("%d",&total);
+    }
+    return total;
+}
+
+void leerTotalProductos(int cant, int cantidadProducto[10]){
+    float sumaCant;
+    for (int i = 0; i < cant; i++){
+        sumaCant += cantidadProducto[i];
+    }
+    printf("La cantidad total de los productos es: \n>>%.2f\n",sumaCant);
+}
+
 char leerNombre(int num, int i, char producto[10][50]){
     printf ("Ingrese el nombre del producto %d:\n>>",num);
     fflush(stdin);
@@ -35,8 +54,7 @@ float leerPrecio(int num, int i, float precio[10]){
 void buscar(int cant, char producto [10][50], float precio[10], char buscarProducto[50]){
     int validar=0;
     int opc;
-    do
-    {
+    do{
         printf("¿De que producto desea buscar el precio?\n>>");
         fflush(stdin);
         fgets(buscarProducto,50, stdin);
